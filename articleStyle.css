@@ -1,0 +1,36 @@
+div img
+{
+	border: 4px solid rgb(255, 0, 0);
+}
+
+
+.imgblock {
+    
+	text-align: center;
+	width: 50%;
+}
+
+.imgblock::after
+{
+    content: attr(textForImg);
+	position: relative;
+	color: rgb(0, 255, 213);
+	margin: auto;
+	display: flex;
+  	justify-content: center;
+	top: -40px;
+}
+
+.imgblock:active {
+    width: 60%;
+}
+
+.mainpage .navigation
+{
+	padding-top: 100px;
+}
+
+.mainpage:nth-child(1n)
+{
+	padding-left: 10px;
+}

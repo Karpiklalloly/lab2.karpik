@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+
+<html lang="ru">
+	<head>
+		<meta charset="utf-8" />
+		<title>Лабораторная работа 1</title>
+		
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js" integrity="sha384-skAcpIdS7UcVUC05LJ9Dxay8AXcDYfBJqt1CJ85S/CFujBsIzCIv+l9liuYLaMQ/" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>  
+		<link href ="stylesGlobal.css" rel="stylesheet"> </link>
+		<link href ="graphStyles.css" rel="stylesheet"> </link>
+		<script src = "tabling.js"> </script>
+		
+	</head>
+	<body>
+		<nav class="navbar fixed-top navbar-expand-md navbar-light bg-dark">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="#"><span class="topbar">ПР1</span></a>
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse topbar" id="navbarSupportedContent">
+					<ul class="navbar-nav me-auto mb-2 mb-lg-0 redding">
+						<li class="nav-item">
+							<a class="nav-link active" aria-current="page" href="index.html"><span class="topbar">Статья</span></a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" aria-current="page" href="graph.html"><span class="topbar">График</span></a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="drag.html" aria-disabled="true"><span class="topbar">Заметки</span></a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<div class = "graph">
+			<form method="post" action="" id="forming">
+				<table Border="2">
+					<thead>
+						<tr>
+							<th scope="col">Имя</th>
+							<th scope="col">Русский язык</th>
+							<th scope="col">Математика</th>
+							<th scope="col">История</th>
+							<th scope="col">Литература</th>
+						</tr>
+					</thead>
+					<tbody id="dynamic">
+					</tbody>
+				</table>
+				<input id="SUBMIT" name="INPUT_DATA" type="button" value="Задать значения">
+			</form>
+			<script>
+				/* Навешиваем логику: */
+				setupTable
+				(
+					"dynamic", /* ID элемента <tbody> таблицы */
+					"rows_setup", /* ID элемента <select> для установки кол-ва строк */
+					{1:"val1", 2:"val2", 3:"val3", 4:"val4", 5:"val5"}, /* Конфигурация строки таблицы */
+					function (row, fieldName) 
+					{ /* Ф-ция должна возвращать HTMLElement тип - поле формы */
+						var ELEMENT = document.createElement("INPUT");
+			
+						ELEMENT.name = fieldName + "[]";
+						if (row == 0)
+						{
+							ELEMENT.type = 'text';
+						}
+						else
+						{
+							ELEMENT.type = 'number';
+							ELEMENT.max = 5;
+							ELEMENT.min = 1;
+						}
+						//alert(ELEMENT.name);
+						return ELEMENT;						
+					}
+				);
+			</script>
+			<script>
+				SUBMIT.onclick = function()
+				{
+					console.clear();
+					var names = document.getElementsByName("val1[]");
+					var ruLang = document.getElementsByName("val2[]");
+					var math = document.getElementsByName("val3[]");
+					var history = document.getElementsByName("val4[]");
+					var literature = document.getElementsByName("val5[]");
+					for (var i = 0; i < names.length; i++)
+					{
+						if (ruLang[i].value > 5 || ruLang[i].value < 0)
+							return;
+						if (math[i].value > 5 || math[i].value < 0)
+							return;
+						if (history[i].value > 5 || history[i].value < 0)
+							return;
+						if (literature[i].value > 5 || literature[i].value < 0)
+							return;
+
+						//console.log(names[i].value);
+						//console.log(ruLang[i].value);
+						//console.log(math[i].value);
+						//console.log(history[i].value);
+						//console.log(literature[i].value);
+					}
+
+					const labels = [
+						'Русский язык',
+						'Математика',
+						'История',
+						'Литература'
+					]
+					data = {
+  						labels: labels,
+  						datasets: [
+    					{
+     						label: names[0].value,
+							data: [ruLang[0].value, math[0].value, history[0].value, literature[0].value],
+    						backgroundColor: 'rgb(0, 0, 255)',
+      						borderColor: 'rgb(0, 0, 0)',
+      						
+ 						},
+						{
+     						label: names[1].value,
+							data: [ruLang[1].value, math[1].value, history[1].value, literature[1].value],
+    						backgroundColor: 'rgb(255, 0, 0)',
+      						borderColor: 'rgb(0, 0, 0)',
+      						
+ 						},
+						{
+     						label: names[2].value,
+							data: [ruLang[2].value, math[2].value, history[2].value, literature[2].value],
+    						backgroundColor: 'rgb(0, 255, 255)',
+      						borderColor: 'rgb(0, 0, 0)',
+      						
+ 						},
+						{
+     						label: names[3].value,
+							data: [ruLang[3].value, math[3].value, history[3].value, literature[3].value],
+    						backgroundColor: 'rgb(255, 0, 255)',
+      						borderColor: 'rgb(0, 0, 0)',
+      						
+ 						},
+  						]
+					};
+					const config = {
+						type: 'bar',
+						data: data,
+						options: {
+    						y: 200
+  						} 
+					}
+					if (aaa.t!=0)
+					{
+						aaa.chart.destroy();
+					}
+					aaa.t++;
+					var canvas = document.getElementById('myChart');
+					aaa.chart = new Chart(
+    					canvas,
+    					config
+					);
+					aaa.chart.canvas.parentNode.style.height = '640px';
+					aaa.chart.canvas.parentNode.style.width = '640px';
+				};
+			</script>
+			<div class="graphic">
+				<canvas id="myChart"></canvas>
+			</div>
+		</div>
+	</body>
+</html>

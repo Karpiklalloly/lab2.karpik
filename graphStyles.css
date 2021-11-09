@@ -1,0 +1,24 @@
+.graph form
+{
+	position: relative;
+	top: 60px;
+}
+
+tbody tr:nth-child(1n):hover input
+{
+    background: #46a6be; /* Цвет фона при наведении */
+}
+
+
+
+.graph table
+{
+	min-width: 50%;
+	max-width: 100%;
+}
+
+.graph table input
+{
+	min-width: 25%;
+	width: 50%;
+}

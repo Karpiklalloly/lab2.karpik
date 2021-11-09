@@ -1,0 +1,44 @@
+html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body
+{
+	width: 100%;
+	color: green;
+}
+
+.nav-item .topbar
+{
+	color: white;
+}
+
+.navbar-brand > .topbar
+{
+	color: white;
+}
+
+p a
+{
+	color: red;
+}
+
+.graphic
+{
+	position: relative;
+	top: 150px;
+}
+
+.flexing
+{
+	display: flex;
+	flex-wrap: wrap;
+}
+
+h1
+{
+	text-align: center;
+	padding-bottom: 10px;
+}

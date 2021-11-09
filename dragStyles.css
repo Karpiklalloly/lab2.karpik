@@ -1,0 +1,35 @@
+.container {
+	position: relative;
+	top: 90px;
+	width: 60%;
+	gap: 30px;
+}
+
+.dragndrop > .flexing > div
+{
+	position: relative;
+	display: flex;
+	width: 100%;
+	flex: 1;
+	padding: 10px;
+    margin: 10px;
+    background: aqua;
+	
+}
+
+.dragndrop > .flexing > div > input
+{
+	position: relative;
+	display: flex;
+    background: aqua;
+	min-width: 100%;
+}
+.dragndrop > .flexing > div:first-child > input
+{
+    background: rgb(255, 0, 0);
+}
+
+.dragndrop > .flexing > div:first-child
+{
+	background-color: rgb(255, 0, 0);
+}
