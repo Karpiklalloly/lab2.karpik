@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+
+<html lang="ru">
+    <head>
+		<meta charset="utf-8" />
+		<title>Лабораторная работа 2</title>
+		
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+		<link href ="styles css/stylesGlobal.css" rel="stylesheet"> </link>
+		<link href ="styles css/formStyles.css" rel="stylesheet"> </link>
+		
+	</head>
+    <body>
+		<nav class="navbar fixed-top navbar-expand-md navbar-light bg-dark">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="#"><span class="topbar">ПР1</span></a>
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse topbar" id="navbarSupportedContent">
+					<ul class="navbar-nav me-auto mb-2 mb-lg-0 redding">
+						<li class="nav-item">
+							<a class="nav-link active" aria-current="page" href="index.html"><span class="topbar">Статья</span></a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" aria-current="page" href="graph.html"><span class="topbar">График</span></a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="drag.html" aria-disabled="true"><span class="topbar">Заметки</span></a>
+						</li>
+                        <li class="nav-item">
+							<a class="nav-link" href="form.html" aria-disabled="true"><span class="topbar">Форма</span></a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="api.html" aria-disabled="true"><span class="topbar">api</span></a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+        <div class = "forming">
+			<div class="container flexing">
+				<form method="post" action="form.php" enctype="multipart/form-data" id="forming">
+				Введите, почему Вы играете в Dota 2:
+  				<div>
+    				<input type="text" id="reasonsToPlay" name="reasonsToPlay" required minlength="4" placeholder="Пудж">
+  				</div>
+				<p></p>
+
+				Когда Вы начали играть?
+				<div>
+    				<input type="date" id="dateOfFirstPlay" min="2010-10-13" max="2021-11-11" name="dateOfFirstPlay" required>
+  				</div>
+				<p></p>
+
+				Сколько у Вас ммр?
+				<div>
+    				<input type="number" id="CountOfMmr" name="CountOfMmr" min="0" placeholder="9500">
+  				</div>
+				<p></p>
+
+				Как Вы считаете, у Вас должно быть больше ммр?
+				<div>
+    				<input list="PsychoMmr" id="mmr" name="mmr" required>
+					<datalist id="PsychoMmr">
+						<option value="Да">
+						<option value="Нет">
+					</datalist>	
+  				</div>
+				<p></p>
+
+				Введите Ваш e-mail:
+				<div>
+    				<input type="email" id="dotersEmail" name="dotersEmail" required>
+  				</div>
+				<p></p>
+
+				Введите пароль от аккаунта в Steam:
+				<div>
+    				<input type="password" id="dotersPassword" name="dotersPassword" minlength="5" required>
+  				</div>
+				<p></p>
+
+				На ком Вы играете в Доту?
+				<div>
+    				<select id="Pudge" name="dotersPick">
+						<option value="Пудж">Пудж</option>
+						<option value="Падж">Падж</option>
+						<option value="Паджерс">Паджерс</option>
+						<option value="Рудге">Рудге</option>
+						<option value="Пиджак">Пиджак</option>
+					</select>
+  				</div>
+				<p></p>
+
+				Что Вы покупаете на Вашего персонжа?
+				<div>
+    				<input type="checkbox" id="MOM1" name="dotersItems[]" value="Mask Of Madness">
+					<label for="MOM1">Mask Of Madness</label>
+					<input type="checkbox" id="MOM2" name="dotersItems[]" value="Момчик">
+					<label for="MOM2">Момчик</label>
+					<input type="checkbox" id="MOM3" name="dotersItems[]" value="Красную маску">
+					<label for="MOM3">Красную маску</label>
+  				</div>
+				<p></p>
+
+				
+
+				<p>Выберите способ подтверждения личности:</p>
+  				<div>
+    				<input type="radio" id="contactChoice1" name="contact" value="Email" required>
+    				<label for="contactChoice1">Email</label>
+
+    				<input type="radio" id="contactChoice2" name="contact" value="Phone" required>
+    				<label for="contactChoice2">Phone</label>
+
+    				<input type="radio" id="contactChoice3" name="contact" value="Mail" required>
+    				<label for="contactChoice3">Mail</label>
+  				</div>
+				<p></p>
+
+				Загрузите аватар Steam:
+				<div>
+    				<input type="file" id="avatar" name="avatar" accept=".jpg, .jpeg, .png" required>
+  				</div>
+				<p></p>
+
+				Опишите себя:
+				<div>
+    				<textarea id="areaOfText" name="areaOfText" minlength="10">
+
+					</textarea>
+  				</div>
+				<p></p>
+				
+  				<div>
+    				<button type="sumbit">Подтвердить</button>
+				</div>
+
+				<div>
+    				<button type="reset">Очистить форму</button>
+				</div>
+				
+			</form>
+		</div>
+        </div>
+    </body>
+</html>

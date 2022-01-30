@@ -1,0 +1,9 @@
+body
+{
+    margin-top: 60px;
+}
+
+input:invalid
+{
+    background-color: red;
+}

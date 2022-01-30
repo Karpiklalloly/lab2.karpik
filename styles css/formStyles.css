@@ -1,0 +1,19 @@
+.forming form:first-child
+{
+    margin-top: 60px;
+}
+
+.forming > form:nth-child(2n)
+{
+    margin-left: 20px;
+}
+
+.forming input:hover
+{
+    background-color: rgb(74, 157, 182);
+}
+
+input:invalid
+{
+    background-color: red;
+}
